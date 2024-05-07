@@ -17,7 +17,7 @@ FROM scratch
 COPY --from=builder /app/bin/app /
 
 # Expose port 8000 to the outside world
-EXPOSE 9000
+EXPOSE 8000
 
 # Command to run the Go executable
 CMD ["/app"]

@@ -1,0 +1,11 @@
+localhost {
+    @allowedRoutes {
+        path /poker* /spins*
+    }
+    respond @allowedRoutes 404
+    
+    handle @allowedRoutes {
+        reverse_proxy /spins localhost:8000
+        reverse_proxy /poker localhost:9000
+    }
+}

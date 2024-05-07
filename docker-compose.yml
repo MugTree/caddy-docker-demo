@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  caddy:
+    image: caddy:latest
+    ports:
+      - "8080:80" # Mapping port 8080 on the host to port 80 in the container
+      - "8443:443" # Mapping port 8443 on the host to port 443 in the container
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - proxy
+
+  poker:
+    image: poker-test-app
+    networks:
+      - proxy
+
+  spins:
+    image: spins-test-app
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:
