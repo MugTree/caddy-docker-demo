@@ -5,7 +5,7 @@ volumes and access to Docker, plus two test applications, all connected to a sha
 
 I've written the dummy apps in Go, was just easier than the .net apps as I was confused about the port mapping with Kestrel.
 
-** !! Opened some ports on the container 800, 9000 for debugging purposes **
+** !! Opened some ports on the container 8000 for debugging purposes **
 
 ## Basic idea..
 
@@ -17,11 +17,11 @@ In theory a request to
 
 #### http://gaming.localhost/spins
 
-...should proxy content from the app running at localhost:8000
+...should proxy content from the app running at 172.18.0.4:8000 on the docker network
 
 #### http://gaming.localhost/poker
 
-... should proxy content from the app running at localhost:9000
+... should proxy content from the app running at 172.18.0.3:8000 on the docker network
 
 It's not working at the moment though, will get to to the bottom of it :)
 
@@ -34,7 +34,7 @@ It's not working at the moment though, will get to to the bottom of it :)
                     }
 
                     handle_path /poker/* {
-                        reverse_proxy 172.18.0.3:9000
+                        reverse_proxy 172.18.0.3:8000
                     }
                 }
 

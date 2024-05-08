@@ -12,5 +12,5 @@ func HandlePoker(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", HandlePoker)
-	log.Fatal(http.ListenAndServe(":9000", nil))
+	log.Fatal(http.ListenAndServe(":8000", nil))
 }
