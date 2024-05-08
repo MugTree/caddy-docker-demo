@@ -28,13 +28,19 @@ It's not working at the moment though, will get to to the bottom of it :)
                 gaming.localhost {
 
                     handle_path /spins/* {
-                        reverse_proxy localhost:8000
+                        reverse_proxy 172.18.0.4:8000
                     }
 
                     handle_path /poker/* {
-                        reverse_proxy localhost:9000
+                        reverse_proxy 172.18.0.3:9000
                     }
                 }
 
 As far as my understanding of Caddy goes the `handle_path` directive should strip off a path that matches /spins/
 and proxy back content from the root of the app.
+
+### Useful commands
+
+docker compose up -d  
+docker compose down
+docker network inspect caddy-proxy-demo_proxy

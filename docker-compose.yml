@@ -12,21 +12,32 @@ services:
       - caddy_config:/config
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
-      - proxy
+      proxy:
+        ipv4_address: 172.18.0.2 # IP address for caddy service
 
   poker:
     image: poker-test-app
+    ports:
+      - "9000:9000"
     networks:
-      - proxy
+      proxy:
+        ipv4_address: 172.18.0.3 # IP address for poker service
 
   spins:
     image: spins-test-app
+    ports:
+      - "8000:8000"
     networks:
-      - proxy
+      proxy:
+        ipv4_address: 172.18.0.4 # IP address for spins service
 
 networks:
   proxy:
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16 # Subnet for the proxy network
 
 volumes:
   caddy_data:
