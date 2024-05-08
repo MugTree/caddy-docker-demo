@@ -5,6 +5,8 @@ volumes and access to Docker, plus two test applications, all connected to a sha
 
 I've written the dummy apps in Go, was just easier than the .net apps as I was confused about the port mapping with Kestrel.
 
+** !! Opened some ports on the container 800, 9000 for debugging purposes **
+
 ## Basic idea..
 
 ### I've set up my hosts file
@@ -44,3 +46,4 @@ and proxy back content from the root of the app.
 docker compose up -d  
 docker compose down
 docker network inspect caddy-proxy-demo_proxy
+docker network prune
