@@ -1,5 +1,7 @@
 gaming.localhost {
     
+    
+
     handle_path /spins/* {
         reverse_proxy 172.18.0.4:8000
     }
