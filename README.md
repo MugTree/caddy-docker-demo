@@ -48,3 +48,4 @@ docker compose down
 docker network inspect caddy-proxy-demo_proxy
 docker network prune
 docker run -d -p 9000:8000 poker-test-app
+docker build -t poker-test-app .
