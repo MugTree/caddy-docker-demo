@@ -5,7 +5,7 @@ volumes and access to Docker, plus two test applications, all connected to a sha
 
 I've written the dummy apps in Go, was just easier than the .net apps as I was confused about the port mapping with Kestrel.
 
-**!! Opened ports 8000, 9000 on the game containers for debugging purposes !!**
+**!! Opened ports 8000, 8001 on the game containers for debugging purposes !!**
 
 ## Basic idea..
 
@@ -15,15 +15,15 @@ I've written the dummy apps in Go, was just easier than the .net apps as I was c
 
 In theory a request to
 
-#### http://gaming.localhost/spins
+#### https://gaming.localhost/spins
 
 ...should proxy content from the app running at 172.18.0.4:8000 on the docker network
 
-#### http://gaming.localhost/poker
+#### https://gaming.localhost/poker
 
-... should proxy content from the app running at 172.18.0.3:8000 on the docker network
+... should proxy content from the app running at 172.18.0.3:8001 on the docker network
 
-It's not working at the moment though, will get to to the bottom of it :)
+**! This now works - ingore the certificate warnings... **
 
 ### If you look at the Caddyfile you should see...
 
@@ -34,7 +34,7 @@ It's not working at the moment though, will get to to the bottom of it :)
                     }
 
                     handle_path /poker/* {
-                        reverse_proxy 172.18.0.3:8000
+                        reverse_proxy 172.18.0.3:8001
                     }
                 }
 
