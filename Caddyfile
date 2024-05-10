@@ -7,6 +7,6 @@ gaming.localhost {
     }
 
      handle_path /poker/* {
-        reverse_proxy 172.18.0.3:8000
+        reverse_proxy 172.18.0.3:8001
     }
 }
