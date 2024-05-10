@@ -5,8 +5,6 @@ volumes and access to Docker, plus two test applications, all connected to a sha
 
 I've written the dummy apps in Go, was just easier than the .net apps as I was confused about the port mapping with Kestrel.
 
-**!! Opened ports 8000, 8001 on the game containers for debugging purposes !!**
-
 ## Basic idea..
 
 ### I've set up my hosts file
