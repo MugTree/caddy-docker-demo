@@ -3,6 +3,7 @@ version: "3.8"
 services:
   caddy:
     image: caddy:latest
+    container_name: caddy
     ports:
       - "80:80"
       - "443:443"
@@ -13,23 +14,25 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       proxy:
-        ipv4_address: 172.18.0.2 # IP address for caddy service
+        # ipv4_address: 172.18.0.2 # IP address for caddy service
 
   poker:
     image: poker-test-app
+    container_name: poker
     # ports:
     #  - "8001:8001"
     networks:
       proxy:
-        ipv4_address: 172.18.0.3 # IP address for poker service
+        # ipv4_address: 172.18.0.3 # IP address for poker service
 
   spins:
     image: spins-test-app
+    container_name: spins
     # ports:
     #  - "8000:8000"
     networks:
       proxy:
-        ipv4_address: 172.18.0.4 # IP address for spins service
+        # ipv4_address: 172.18.0.4 # IP address for spins service
 
 networks:
   proxy:

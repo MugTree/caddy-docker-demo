@@ -1,10 +1,10 @@
 gaming.localhost {
     
     handle_path /spins {
-        reverse_proxy 172.18.0.4:8000
+        reverse_proxy spins:8000
     }
 
      handle_path /poker {
-        reverse_proxy 172.18.0.3:8001
+        reverse_proxy poker:8001
     }
 }
