@@ -10,8 +10,6 @@ import (
 func HandleSpins(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println("HandleSpins")
-	fmt.Println(r.URL)
-
 	fmt.Fprintln(w, "Welcome to spins!")
 	fmt.Fprintf(w, "%s", r.URL.RawQuery)
 }
