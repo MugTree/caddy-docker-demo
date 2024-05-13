@@ -9,7 +9,8 @@ import (
 
 func HandlePoker(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("HandlePoker")
-	fmt.Fprintf(w, "Welcome to poker!")
+	fmt.Fprintln(w, "Welcome to poker!")
+	fmt.Fprintf(w, "%s", r.URL.RawQuery)
 }
 
 func HandleNotFound(w http.ResponseWriter, r *http.Request) {

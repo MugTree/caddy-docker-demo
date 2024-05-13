@@ -11,7 +11,7 @@ I've written the dummy apps in Go, was just easier than the .net apps as I was c
 
 127.0.0.1 gaming.localhost
 
-In theory a request to
+A request to
 
 #### https://gaming.localhost/spins
 
@@ -21,23 +21,25 @@ In theory a request to
 
 ... should proxy content from the app running at 172.18.0.3:8001 on the docker network
 
-**! This now works - ingore the certificate warnings... **
+**! This now works - ignore the certificate warnings... **
 
 ### If you look at the Caddyfile you should see...
 
                 gaming.localhost {
 
-                    handle_path /spins/* {
+                    handle_path /spins {
                         reverse_proxy 172.18.0.4:8000
                     }
 
-                    handle_path /poker/* {
+                    handle_path /poker {
                         reverse_proxy 172.18.0.3:8001
                     }
                 }
 
 As far as my understanding of Caddy goes the `handle_path` directive should strip off a path that matches /spins/
 and proxy back content from the root of the app.
+
+If you look at the apps the handler that gets hit in each app is the root handler. Used a little go framework called chi that seems abi
 
 ### Useful commands
 
