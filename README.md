@@ -39,7 +39,7 @@ A request to
 As far as my understanding of Caddy goes the `handle_path` directive should strip off a path that matches /spins/
 and proxy back content from the root of the app.
 
-If you look at the apps the handler that gets hit in each app is the root handler. Used a little go framework called chi that seems abi
+If you look at the apps the handler that gets hit in each app is the root handler. Used a little go framework called chi that simplifies the routing through regexes.
 
 ### Useful commands
 
